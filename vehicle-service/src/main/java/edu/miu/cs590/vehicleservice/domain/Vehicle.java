@@ -30,6 +30,10 @@ public class Vehicle {
 
     private VehicleType vehicleType;
 
+    private VehicleStatus vehicleStatus;
+
+    private Double price;
+
 
 
 
