@@ -22,11 +22,17 @@ public class ReservationServiceImpl implements ReservationService {
     private ReservationRepository reservationRepository;
 
     @Override
-    public Reservation addReservation(ReservationRequest reservationRequest, String accountId) {
-        if(reservationRequest.getVehicle().getStatus()==Status.AVAILABLE) {
+    public Reservation addReservation(ReservationRequest reservationRequest, String accountId, Long vehicleId) {
+//        Account account = restTemplate.getForObject("http://localhost:8080/api/v1/users/" + accountId, Account.class);
+        Vehicle vehicle = restTemplate.getForObject("http://localhost:9001/vehicles/" + vehicleId, Vehicle.class);
+        if(vehicle.getStatus()==Status.AVAILABLE) {
             Reservation reservation = new Reservation();
             reservation.setDuration(reservationRequest.getDuration());
             reservation.setAccountId(accountId);
+            reservation.setPaymentType(reservationRequest.getPaymentType());
+            reservation.setVehicle(reservationRequest.getVehicle());
+//            reservation.setStatus(Status.RESERVED);
+            reservation.getVehicle().setVehicleId(vehicleId);
             reservationRequest.getVehicle().setStatus(Status.RESERVED);
             return reservationRepository.save(reservation);
         }
@@ -36,13 +42,16 @@ public class ReservationServiceImpl implements ReservationService {
     }
 
     @Override
-    public void cancelReservation(Long reservationId, Reservation reservation) {
-        if(reservationRepository.findById(reservationId).isPresent()) {
+    public void cancelReservation(Long reservationId) {
+        Optional<Reservation> optionalReservation = reservationRepository.findById(reservationId);
+        if(!optionalReservation.isPresent()) {
+            System.out.println("Reservation does not exist");
+        }
+        else{
+            Reservation reservation = optionalReservation.get();
             reservation.getVehicle().setStatus(Status.AVAILABLE);
             reservationRepository.deleteById(reservationId);
         }
-        else
-            System.out.println("Reservation does not exist");
     }
 
     @Override
@@ -58,7 +67,7 @@ public class ReservationServiceImpl implements ReservationService {
     @Override
     public Reservation updateStatus(Long reservationId, Status status) {
         Reservation reservation= reservationRepository.findById(reservationId).get();
-        reservation.setStatus(status);
+//        reservation.setStatus(status);
         return reservation;
     }
 

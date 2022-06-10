@@ -16,8 +16,7 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long reservationId;
     private String accountId;
-    private String vehicleId;
-    private Status status;
+//    private Status status;
     @Embedded
     private Duration duration;
     private PaymentType paymentType;
