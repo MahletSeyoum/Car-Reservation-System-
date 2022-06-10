@@ -1,0 +1,18 @@
+server:
+  port: 8100
+
+spring:
+  application:
+    name: SEARCH-SERVICE
+  datasource:
+    password: 123Yonatan
+    url: jdbc:postgresql://localhost:5432/SearchDB
+    username: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
