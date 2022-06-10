@@ -6,16 +6,22 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="vehicle-service" />
+        <module name="accountservice" />
         <module name="reservation-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="accountservice" target="17" />
       <module name="reservation-service" target="17" />
+      <module name="vehicle-service" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="accountservice" options="-parameters" />
       <module name="reservation-service" options="-parameters" />
+      <module name="vehicle-service" options="-parameters" />
     </option>
   </component>
 </project>
