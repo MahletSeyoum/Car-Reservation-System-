@@ -1,8 +1,6 @@
 package edu.miu.cs590.reservationservice.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -16,11 +14,13 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long reservationId;
     private String accountId;
-    private String vehicleId;
     private Status status;
     @Embedded
     private Duration duration;
     private PaymentType paymentType;
-    @OneToOne
+
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "vehicleID")
     private Vehicle vehicle;
+
 }
