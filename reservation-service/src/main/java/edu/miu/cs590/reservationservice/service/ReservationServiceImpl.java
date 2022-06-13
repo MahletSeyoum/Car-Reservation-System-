@@ -25,21 +25,23 @@ public class ReservationServiceImpl implements ReservationService {
     public Reservation addReservation(ReservationRequest reservationRequest, String accountId, Long vehicleId) {
 //        Account account = restTemplate.getForObject("http://localhost:8080/api/v1/users/" + accountId, Account.class);
         Vehicle vehicle = restTemplate.getForObject("http://localhost:9001/vehicles/" + vehicleId, Vehicle.class);
-        if(vehicle.getStatus()==Status.AVAILABLE) {
-            Reservation reservation = new Reservation();
-            reservation.setDuration(reservationRequest.getDuration());
-            reservation.setAccountId(accountId);
-            reservation.setPaymentType(reservationRequest.getPaymentType());
-            reservation.setVehicle(reservationRequest.getVehicle());
-//            reservation.setStatus(Status.RESERVED);
-            reservation.getVehicle().setVehicleId(vehicleId);
-            reservationRequest.getVehicle().setStatus(Status.RESERVED);
-            return reservationRepository.save(reservation);
-        }
+         if(vehicle.getStatus()==Status.AVAILABLE) {
+             Reservation reservation = new Reservation();
+             reservation.setDuration(reservationRequest.getDuration());
+             reservation.setAccountId(accountId);
+             reservation.setPaymentType(reservationRequest.getPaymentType());
+             reservation.setVehicle(reservationRequest.getVehicle());
+             reservation.setStatus(Status.RESERVED);
+             reservation.getVehicle().setId(vehicleId);
+             reservationRequest.getVehicle().setStatus(Status.RESERVED);
+             return reservationRepository.save(reservation);
+         }
         else
             System.out.println("Vehicle is not available");
-        return null;
+            return null;
+
     }
+
 
     @Override
     public void cancelReservation(Long reservationId) {
@@ -67,7 +69,7 @@ public class ReservationServiceImpl implements ReservationService {
     @Override
     public Reservation updateStatus(Long reservationId, Status status) {
         Reservation reservation= reservationRepository.findById(reservationId).get();
-//        reservation.setStatus(status);
+        reservation.setStatus(status);
         return reservation;
     }
 
@@ -96,7 +98,6 @@ public class ReservationServiceImpl implements ReservationService {
             return "Payment request failed, please try again!";
         }
     }
-
 
     }
 
