@@ -4,18 +4,6 @@ server:
 spring:
   application:
     name: PAYMENT-SERVICE
-  data:
-    mongodb:
-      port: '27017'
-      host: localhost
-      database: paymentdb
-      username: admin
-      password: password
-
-
-
-
-
   datasource:
     password: password
     url: jdbc:postgresql://localhost:5432/paymentdb
