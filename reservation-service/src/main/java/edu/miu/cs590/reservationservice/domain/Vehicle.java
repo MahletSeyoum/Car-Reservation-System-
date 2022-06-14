@@ -1,8 +1,6 @@
 package edu.miu.cs590.reservationservice.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,13 +9,34 @@ import javax.persistence.Id;
 
 @Entity
 @Data
+@Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Vehicle {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long vehicleId;
-    private Status status;
-    private Double price;
+    private Long id;
+
+    private String vinNumber;
+
+    private String plateNumber;
+
+    private String brand;
+
+    private String model;
+
+    private String color;
+
+    private Integer quantity;
+
+    private String yearOfManufacture;
+
+    private VehicleType vehicleType;
+
+    private VehicleStatus vehicleStatus;
+
+    private Double Price;
 
 }

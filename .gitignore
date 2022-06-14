@@ -23,4 +23,5 @@
 hs_err_pid*
 
 # IDE files
-.idea
+.idea/*
+*.DS_Store
