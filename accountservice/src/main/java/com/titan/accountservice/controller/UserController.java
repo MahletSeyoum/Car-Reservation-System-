@@ -22,7 +22,7 @@ public class UserController {
         return ResponseEntity.ok().body("");
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{}")
     public UserDto findUserById(@PathVariable int id){
         return userService.findUserById(id);
     }

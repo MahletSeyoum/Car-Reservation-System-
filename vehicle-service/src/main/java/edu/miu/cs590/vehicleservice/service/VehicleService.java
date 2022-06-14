@@ -7,6 +7,10 @@ import java.util.List;
 public interface VehicleService {
     List <Vehicle> getAllVehicle();
 
+    List <Vehicle> getVehicleByBrand(String brand);
+
+    List <Vehicle> getVehicleByModel(String model);
+
     Vehicle getVehicleById (Long vehicleId);
 
     Vehicle addVehicle (Vehicle vehicle);
