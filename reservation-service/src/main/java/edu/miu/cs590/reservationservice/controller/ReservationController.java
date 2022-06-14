@@ -20,14 +20,14 @@ public class ReservationController {
         return reservationService.getAllReservations();
     }
 
-    @PostMapping("/{id}")
-    public Reservation createReservation(@RequestBody ReservationRequest reservationRequest, @PathVariable String id){
-        return reservationService.addReservation(reservationRequest ,id);
+    @PostMapping("/{accountId}/{vehicleId}")
+    public Reservation createReservation(@RequestBody ReservationRequest reservationRequest, @PathVariable String accountId, @PathVariable Long vehicleId){
+        return reservationService.addReservation(reservationRequest,accountId, vehicleId);
     }
 
     @DeleteMapping("/{id}")
-    public void cancelReservation(@RequestBody Reservation reservation, @PathVariable Long id ){
-        reservationService.cancelReservation(id, reservation);
+    public void cancelReservation( @PathVariable Long id ){
+        reservationService.cancelReservation(id);
     }
 
     @GetMapping("/{id}")
@@ -35,12 +35,12 @@ public class ReservationController {
         return reservationService.getReservationById(id);
     }
 
-    @PutMapping("/{id}")
-    public Reservation updateStatus(@PathVariable Long id, @RequestBody Status status){
-        return reservationService.updateStatus(id, status);
-    }
+//    @PutMapping("/{id}")
+//    public Reservation updateStatus(@PathVariable Long id, @RequestBody VehicleStatus status){
+//        return reservationService.updateStatus(id, status);
+//    }
 
-    @PostMapping
+    @PostMapping("/pay")
     public String pay(@RequestBody PaymentRequest paymentRequest){
         return reservationService.pay(paymentRequest);
     }
