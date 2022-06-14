@@ -8,7 +8,8 @@ import org.apache.kafka.common.serialization.Serializer;
 
 import java.util.Map;
 
-public class PaymentStatusSerializer implements Serializer {
+public class PaymentRequestDTOSerializer implements Serializer {
+
     @Override
     public void configure(Map configs, boolean isKey) {
         Serializer.super.configure(configs, isKey);
@@ -21,11 +22,6 @@ public class PaymentStatusSerializer implements Serializer {
         } catch (JsonProcessingException e) {
             throw new SerializationException("Error when serializing MessageDto to byte[]");
         }
-    }
-
-    @Override
-    public byte[] serialize(String topic, Headers headers, Object data) {
-        return Serializer.super.serialize(topic, headers, data);
     }
 
     @Override
