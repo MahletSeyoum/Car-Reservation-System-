@@ -13,8 +13,8 @@ public class PaymentController {
     PaymentService paymentService;
 
     @PostMapping
-    public String processPayment(@RequestBody PaymentRequest orderPayment) {
-        return paymentService.makePayment(orderPayment);
+    public PaymentRequest processPayment(@RequestBody PaymentRequest request) {
+        return paymentService.makePayment(request);
     }
 
 

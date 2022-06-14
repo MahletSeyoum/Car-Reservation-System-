@@ -14,10 +14,8 @@ public class PaymentServiceImpl implements PaymentService{
     PaymentRepository paymentRepository;
 
     @Override
-    public String makePayment(PaymentRequest request){
-        request.setPaymentStatus(PaymentStatus.PAID);
-        //request.setPaymentStatus(PaymentStatus.ERROR);
-        paymentRepository.save(request);
-        return "SUCCESSFUL";
-    }
+    public PaymentRequest makePayment(PaymentRequest request){
+        request.setPaymentStatus(request.getPaymentStatus().PAID);
+        return paymentRepository.save(request);
+            }
 }
