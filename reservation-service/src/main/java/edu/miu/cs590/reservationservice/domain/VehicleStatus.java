@@ -1,6 +1,6 @@
 package edu.miu.cs590.reservationservice.domain;
 
-public enum Status {
+public enum VehicleStatus {
     RESERVED,
     AVAILABLE
 }

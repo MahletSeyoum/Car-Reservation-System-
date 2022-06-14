@@ -2,10 +2,8 @@ package edu.miu.cs590.vehicleservice.domain;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+
 @Data
 @Entity
 public class Vehicle {
@@ -29,7 +27,7 @@ public class Vehicle {
     private String yearOfManufacture;
 
     private VehicleType vehicleType;
-
+    @Enumerated
     private VehicleStatus vehicleStatus;
 
     private Double price;

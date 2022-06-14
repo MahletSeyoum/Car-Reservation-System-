@@ -35,12 +35,12 @@ public class ReservationController {
         return reservationService.getReservationById(id);
     }
 
-    @PutMapping("/{id}")
-    public Reservation updateStatus(@PathVariable Long id, @RequestBody Status status){
-        return reservationService.updateStatus(id, status);
-    }
+//    @PutMapping("/{id}")
+//    public Reservation updateStatus(@PathVariable Long id, @RequestBody VehicleStatus status){
+//        return reservationService.updateStatus(id, status);
+//    }
 
-    @PostMapping
+    @PostMapping("/pay")
     public String pay(@RequestBody PaymentRequest paymentRequest){
         return reservationService.pay(paymentRequest);
     }

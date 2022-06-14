@@ -16,7 +16,7 @@ public interface ReservationService{
 
     Reservation getReservationById(Long reservationId);
 
-    Reservation updateStatus (Long reservationId, Status status);
+//    Reservation updateStatus (Long reservationId, VehicleStatus status);
 
     String pay (PaymentRequest paymentRequest);
 
