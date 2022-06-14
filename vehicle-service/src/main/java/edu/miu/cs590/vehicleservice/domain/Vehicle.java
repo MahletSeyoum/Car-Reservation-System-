@@ -35,8 +35,4 @@ public class Vehicle {
     private Double price;
 
 
-
-
-
-
 }

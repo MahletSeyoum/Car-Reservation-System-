@@ -4,6 +4,7 @@ import edu.miu.cs590.vehicleservice.domain.Vehicle;
 import edu.miu.cs590.vehicleservice.service.VehicleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -55,8 +56,6 @@ public class VehicleController {
         vehicleService.deleteVehicle(id);
         return ResponseEntity.ok("Successful");
     }
-
-
 
 
 }
