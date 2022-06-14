@@ -1,5 +1,5 @@
 server:
-  port: 8100
+  port: 8600
 
 spring:
   application:
@@ -16,3 +16,4 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
     show-sql: true
+
