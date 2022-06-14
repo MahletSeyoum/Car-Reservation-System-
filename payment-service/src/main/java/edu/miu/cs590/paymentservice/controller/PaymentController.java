@@ -29,7 +29,7 @@ public class PaymentController {
 
     @PostMapping("/message")
     public void publish(@RequestBody PaymentRequest request){
-        System.out.println("aaaaaaaaa "+ request);
+        //System.out.println("aaaaaaaaa "+ request);
         kafkaTemplate.send("paymentnotifier", request);
     }
 

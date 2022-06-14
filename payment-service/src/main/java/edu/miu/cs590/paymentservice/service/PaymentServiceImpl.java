@@ -16,6 +16,10 @@ public class PaymentServiceImpl implements PaymentService{
     @Override
     public PaymentRequest makePayment(PaymentRequest request){
         request.setPaymentStatus(request.getPaymentStatus().PAID);
+        request.setPaymentType(request.getPaymentType());
+        request.setAccountId(request.getAccountId());
+        request.setPrice(request.getPrice());
+        request.setReservationId(request.getReservationId());
         return paymentRepository.save(request);
             }
 }

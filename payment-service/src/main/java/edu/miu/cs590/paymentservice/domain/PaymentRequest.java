@@ -21,4 +21,6 @@ public class PaymentRequest {
     private Double price;
     private PaymentStatus paymentStatus;
 
+
+
 }
