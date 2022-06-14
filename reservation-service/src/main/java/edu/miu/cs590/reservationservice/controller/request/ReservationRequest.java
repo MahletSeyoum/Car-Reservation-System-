@@ -12,6 +12,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ReservationRequest {
     private Duration duration;
-    private Vehicle vehicle;
+//    private Vehicle vehicle;
     private PaymentType paymentType;
 }
