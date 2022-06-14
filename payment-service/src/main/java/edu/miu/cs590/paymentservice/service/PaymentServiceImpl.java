@@ -14,10 +14,12 @@ public class PaymentServiceImpl implements PaymentService{
     PaymentRepository paymentRepository;
 
     @Override
-    public String makePayment(PaymentRequest request){
-        request.setPaymentStatus(PaymentStatus.PAID);
-        //request.setPaymentStatus(PaymentStatus.ERROR);
-        paymentRepository.save(request);
-        return "SUCCESSFUL";
-    }
+    public PaymentRequest makePayment(PaymentRequest request){
+        request.setPaymentStatus(request.getPaymentStatus().PAID);
+        request.setPaymentType(request.getPaymentType());
+        request.setAccountId(request.getAccountId());
+        request.setPrice(request.getPrice());
+        request.setReservationId(request.getReservationId());
+        return paymentRepository.save(request);
+            }
 }

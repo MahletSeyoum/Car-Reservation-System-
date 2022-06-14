@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 public class PaymentRequest {
     private Long userId;
     private Long reservationId;
-    private Status status;
+    private ReservationStatus reservationStatus;
     private PaymentType paymentType;
     private Double totalPrice;
     private PaymentStatus paymentStatus;

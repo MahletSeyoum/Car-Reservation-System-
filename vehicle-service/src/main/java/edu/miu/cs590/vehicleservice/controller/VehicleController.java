@@ -30,10 +30,24 @@ public class VehicleController {
     }
 
     //Get the vehicles by id
-    @GetMapping("/{id}")
-    public ResponseEntity<?> getVehicleById(@PathVariable Long id) {
+    @GetMapping("getvehicle/{id}")
+    public Vehicle getVehicleById(@PathVariable Long id) {
         Vehicle vehicle = vehicleService.getVehicleById(id);
-        return ResponseEntity.ok(vehicle);
+        return vehicle;
+
+    }
+
+    @GetMapping("getvehiclebybrand/{brand}")
+    public List<Vehicle> getVehicleByBrand(@PathVariable String brand) {
+        List<Vehicle> vehicle = vehicleService.getVehicleByBrand(brand);
+        return vehicle;
+
+    }
+
+    @GetMapping("getvehiclebymodel/{model}")
+    public List<Vehicle> getVehicleByModel(@PathVariable String model) {
+        List<Vehicle> vehicle = vehicleService.getVehicleByModel(model);
+        return vehicle;
 
     }
 

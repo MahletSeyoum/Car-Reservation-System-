@@ -8,15 +8,15 @@ import java.util.List;
 
 public interface ReservationService{
 
-    Reservation addReservation(ReservationRequest reservationRequest, String accountId);
+    Reservation addReservation(ReservationRequest reservationRequest, String accountId, Long vehicleId);
 
-    void cancelReservation(Long reservationId, Reservation reservation);
+    void cancelReservation(Long reservationId);
 
     List<Reservation> getAllReservations();
 
     Reservation getReservationById(Long reservationId);
 
-    Reservation updateStatus (Long reservationId, Status status);
+//    Reservation updateStatus (Long reservationId, VehicleStatus status);
 
     String pay (PaymentRequest paymentRequest);
 

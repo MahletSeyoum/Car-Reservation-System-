@@ -5,7 +5,7 @@ spring:
   application:
     name: VEHICLE-SERVICE
   datasource:
-    password: password
+    password: 123Yonatan
     url: jdbc:postgresql://localhost:5432/vehicleDB
     username: postgres
   jpa:
@@ -16,3 +16,4 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
     show-sql: true
+
