@@ -1,0 +1,21 @@
+server:
+  port: 9051
+
+
+spring:
+  application:
+    name: NOTIFICATION-SERVICE
+  datasource:
+    password: password
+    url: jdbc:postgresql://localhost:5432/notificationdb
+    username: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+  kafka:
+    bootstrap-servers: localhost:9092

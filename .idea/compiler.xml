@@ -11,11 +11,13 @@
         <module name="vehicle-service" />
         <module name="accountservice" />
         <module name="search-service" />
+        <module name="notification-service" />
         <module name="reservation-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="accountservice" target="17" />
+      <module name="notification-service" target="17" />
       <module name="payment-service" target="17" />
       <module name="reservation-service" target="17" />
       <module name="search-service" target="17" />
@@ -25,6 +27,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="accountservice" options="-parameters" />
+      <module name="notification-service" options="-parameters" />
       <module name="payment-service" options="-parameters" />
       <module name="reservation-service" options="-parameters" />
       <module name="search-service" options="-parameters" />
