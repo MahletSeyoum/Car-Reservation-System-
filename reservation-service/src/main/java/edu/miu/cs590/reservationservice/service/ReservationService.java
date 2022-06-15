@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface ReservationService{
 
-    Reservation addReservation(ReservationRequest reservationRequest, String accountId, String vehicleId);
+    Reservation addReservation(ReservationRequest reservationRequest, String vehicleId);
 
     void cancelReservation(String reservationId);
 

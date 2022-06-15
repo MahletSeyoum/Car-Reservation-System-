@@ -1,12 +1,14 @@
 package edu.miu.cs590.vehicleservice.service;
 
 import edu.miu.cs590.vehicleservice.domain.Vehicle;
+import edu.miu.cs590.vehicleservice.domain.VehicleStatus;
 import edu.miu.cs590.vehicleservice.repository.VehicleRepository;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Data
 @Service
@@ -55,5 +57,14 @@ public class VehicleServiceImp implements VehicleService{
     @Override
     public void deleteVehicle(String vehicleId) {
         vehicleRepository.deleteById(vehicleId);
+    }
+
+    @Override
+    public void updateVehicleStatus(String vehicleId, VehicleStatus vehicleStatus) {
+        Optional<Vehicle> vehicleOptional = vehicleRepository.findById(vehicleId);
+        if(vehicleOptional.isPresent()){
+            vehicleOptional.get().setVehicleStatus(vehicleStatus);
+            vehicleRepository.save(vehicleOptional.get());
+        }
     }
 }

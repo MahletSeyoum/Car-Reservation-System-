@@ -24,9 +24,9 @@ public class ReservationController {
         return reservationService.getAllReservations();
     }
 
-    @PostMapping("/{accountId}/{vehicleId}")
-    public Reservation createReservation(@RequestBody ReservationRequest reservationRequest, @PathVariable String accountId, @PathVariable String vehicleId){
-        return reservationService.addReservation(reservationRequest,accountId, vehicleId);
+    @PostMapping("/{vehicleId}")
+    public Reservation createReservation(@RequestBody ReservationRequest reservationRequest, @PathVariable String vehicleId){
+        return reservationService.addReservation(reservationRequest, vehicleId);
     }
 
     @DeleteMapping("/{id}")

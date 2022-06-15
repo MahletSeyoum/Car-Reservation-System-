@@ -44,8 +44,9 @@ public class ReservationControllerTest {
     @Test
     public void testGetReservationById() throws Exception {
         Mockito.when(reservationService.getReservationById("123"))
-                .thenReturn(new Reservation("123", "123",
+                .thenReturn(new Reservation("123",
                         ReservationStatus.RESERVED,
+                        new Account(),
                         new Duration(),
                         PaymentType.BANK,
                         new Vehicle()));

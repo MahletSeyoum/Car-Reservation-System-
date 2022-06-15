@@ -1,6 +1,7 @@
 package edu.miu.cs590.vehicleservice.service;
 
 import edu.miu.cs590.vehicleservice.domain.Vehicle;
+import edu.miu.cs590.vehicleservice.domain.VehicleStatus;
 
 import java.util.List;
 
@@ -18,5 +19,6 @@ public interface VehicleService {
     Vehicle updateVehicle (String vehicleId , Vehicle vehicle);
 
     void deleteVehicle (String vehicleId);
+    void updateVehicleStatus(String vehicleId, VehicleStatus vehicleStatus);
 
 }

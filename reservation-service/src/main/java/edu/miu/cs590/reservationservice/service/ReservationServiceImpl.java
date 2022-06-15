@@ -22,19 +22,20 @@ public class ReservationServiceImpl implements ReservationService {
     private ReservationRepository reservationRepository;
 
     @Override
-    public Reservation addReservation(ReservationRequest reservationRequest, String accountId, String vehicleId) {
-//        Account account = restTemplate.getForObject("http://localhost:8080/api/v1/users/" + accountId, Account.class);
-        Vehicle vehicle = restTemplate.getForObject("http://localhost:9001/vehicles/" + vehicleId, Vehicle.class);
+    public Reservation addReservation(ReservationRequest reservationRequest, String vehicleId) {
+//        Account account = restTemplate.getForObject("http://localhost:8080/api/v1/users/" + reservationRequest.getAccount().getId(), Account.class);
+        Vehicle vehicle = restTemplate.getForObject("http://localhost:9001/vehicles/getvehicle/" + vehicleId, Vehicle.class);
         if (vehicle.getVehicleStatus() == VehicleStatus.AVAILABLE) {
             Reservation reservation = new Reservation();
             reservation.setDuration(reservationRequest.getDuration());
-            reservation.setAccountId(accountId);
+            reservation.setAccount(reservationRequest.getAccount());
             reservation.setPaymentType(reservationRequest.getPaymentType());
-            vehicle.setId(null);
+//            vehicle.setId(null);
             reservation.setVehicle(vehicle);
             reservation.setReservationStatus(ReservationStatus.PENDING);
             reservation.getVehicle().setVehicleStatus(VehicleStatus.RESERVED);
-//             reservation.getVehicle().setId(vehicleId);
+            reservation.getVehicle().setId(vehicleId);
+            restTemplate.put("http://localhost:9001/vehicles/update-status/" + vehicleId, VehicleStatus.RESERVED, VehicleStatus.class);
             return reservationRepository.save(reservation);
         } else
             System.out.println("Vehicle is not available");

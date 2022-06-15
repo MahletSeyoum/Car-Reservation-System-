@@ -1,6 +1,7 @@
 package edu.miu.cs590.vehicleservice.controller;
 
 import edu.miu.cs590.vehicleservice.domain.Vehicle;
+import edu.miu.cs590.vehicleservice.domain.VehicleStatus;
 import edu.miu.cs590.vehicleservice.service.VehicleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,7 +71,11 @@ public class VehicleController {
 
     }
 
-
+    @PutMapping("/update-status/{id}")
+    public ResponseEntity<?> updateVehicleStatus(@PathVariable String id, @RequestBody VehicleStatus vehicleStatus){
+        vehicleService.updateVehicleStatus(id, vehicleStatus);
+        return ResponseEntity.noContent().build();
+    }
 
 
 }

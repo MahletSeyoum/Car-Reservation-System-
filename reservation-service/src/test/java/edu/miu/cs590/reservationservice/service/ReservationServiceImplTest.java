@@ -48,7 +48,8 @@ public class ReservationServiceImplTest {
         String reservationId = "123";
         Vehicle vehicle = new Vehicle();
         Duration duration = new Duration();
-        Reservation reservation = new Reservation(reservationId, "123", ReservationStatus.RESERVED, duration, PaymentType.BANK,vehicle);
+        Account account = new Account();
+        Reservation reservation = new Reservation(reservationId, ReservationStatus.RESERVED, account, duration, PaymentType.BANK,vehicle);
         Optional<Reservation> optionalReservation = Optional.of(reservation);
 
         Mockito.when(reservationRepository.findById(reservationId)).thenReturn(optionalReservation);
@@ -80,7 +81,7 @@ public class ReservationServiceImplTest {
         String reservationId = "123";
         Reservation reservation = reservationService.getReservationById(reservationId);
 
-        assertThat(reservation.getReservationId())
+        assertThat(reservation.getId())
                 .isEqualTo(reservationId);
 
     }

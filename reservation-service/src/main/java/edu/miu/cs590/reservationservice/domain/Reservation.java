@@ -13,9 +13,11 @@ import javax.persistence.Id;
 @NoArgsConstructor
 public class Reservation {
     @Id
-    private String reservationId;
-    private String accountId;
+    private String id;
+   // private String accountId;
     private ReservationStatus reservationStatus;
+
+    Account account;
 //    @Embedded
     private Duration duration;
     private PaymentType paymentType;
