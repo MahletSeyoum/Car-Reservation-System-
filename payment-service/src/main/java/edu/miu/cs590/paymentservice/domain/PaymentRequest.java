@@ -17,8 +17,19 @@ public class PaymentRequest {
     private Long id;
     private String paymentType;
     private String reservationId;
-    private String accountId;
+    private String userId;
     private Double price;
     private PaymentStatus paymentStatus;
 
+    @Override
+    public String toString() {
+        return "PaymentRequest{" +
+                "id=" + id +
+                ", paymentType='" + paymentType + '\'' +
+                ", reservationId='" + reservationId + '\'' +
+                ", userId='" + userId + '\'' +
+                ", price=" + price +
+                ", paymentStatus=" + paymentStatus +
+                '}';
+    }
 }

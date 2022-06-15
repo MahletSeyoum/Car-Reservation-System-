@@ -22,6 +22,16 @@ public class VehicleServiceImp implements VehicleService{
     }
 
     @Override
+    public List<Vehicle> getVehicleByBrand(String brand) {
+        return vehicleRepository.getByBrand(brand);
+    }
+
+    @Override
+    public List<Vehicle> getVehicleByModel(String model) {
+        return vehicleRepository.getByModel(model);
+    }
+
+    @Override
     public Vehicle getVehicleById(Long vehicleId) {
         return vehicleRepository.findById(vehicleId).orElse(null);
     }
