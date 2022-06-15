@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 
 public class PaymentRequest {
-    private Long userId;
-    private Long reservationId;
+    private String userId;
+    private String reservationId;
     private ReservationStatus reservationStatus;
     private PaymentType paymentType;
     private Double totalPrice;

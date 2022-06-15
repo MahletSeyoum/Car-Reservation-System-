@@ -1,13 +1,11 @@
 package edu.miu.cs590.reservationservice.domain;
 
 import lombok.*;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
+@Document
 @Data
 @Setter
 @Getter
@@ -16,8 +14,7 @@ import javax.persistence.Id;
 public class Vehicle {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
     private String vinNumber;
 

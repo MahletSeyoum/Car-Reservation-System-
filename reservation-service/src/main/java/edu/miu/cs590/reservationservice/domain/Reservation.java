@@ -1,25 +1,27 @@
 package edu.miu.cs590.reservationservice.domain;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.*;
+import javax.persistence.Id;
 
-@Entity
+@Document
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Reservation {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long reservationId;
+    private String reservationId;
     private String accountId;
     private ReservationStatus reservationStatus;
-    @Embedded
+//    @Embedded
     private Duration duration;
     private PaymentType paymentType;
 
-    @OneToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "vehicleID")
+//    @OneToOne(cascade = CascadeType.PERSIST)
+//    @JoinColumn(name = "vehicleID")
     private Vehicle vehicle;
 
 }

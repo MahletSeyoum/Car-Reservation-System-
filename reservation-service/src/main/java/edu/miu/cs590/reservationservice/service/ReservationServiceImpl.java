@@ -22,7 +22,7 @@ public class ReservationServiceImpl implements ReservationService {
     private ReservationRepository reservationRepository;
 
     @Override
-    public Reservation addReservation(ReservationRequest reservationRequest, String accountId, Long vehicleId) {
+    public Reservation addReservation(ReservationRequest reservationRequest, String accountId, String vehicleId) {
 //        Account account = restTemplate.getForObject("http://localhost:8080/api/v1/users/" + accountId, Account.class);
         Vehicle vehicle = restTemplate.getForObject("http://localhost:9001/vehicles/" + vehicleId, Vehicle.class);
         if (vehicle.getVehicleStatus() == VehicleStatus.AVAILABLE) {
@@ -43,7 +43,7 @@ public class ReservationServiceImpl implements ReservationService {
     }
 
     @Override
-    public void cancelReservation(Long reservationId) {
+    public void cancelReservation(String reservationId) {
         Optional<Reservation> optionalReservation = reservationRepository.findById(reservationId);
         if (!optionalReservation.isPresent()) {
             System.out.println("Reservation does not exist");
@@ -60,7 +60,7 @@ public class ReservationServiceImpl implements ReservationService {
     }
 
     @Override
-    public Reservation getReservationById(Long reservationId) {
+    public Reservation getReservationById(String reservationId) {
         return reservationRepository.findById(reservationId).get();
     }
 

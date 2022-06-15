@@ -2,8 +2,6 @@ package edu.miu.cs590.reservationservice.controller;
 
 import edu.miu.cs590.reservationservice.domain.*;
 import edu.miu.cs590.reservationservice.service.ReservationService;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -17,7 +15,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import static org.junit.Assert.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
@@ -46,15 +43,15 @@ public class ReservationControllerTest {
 
     @Test
     public void testGetReservationById() throws Exception {
-        Mockito.when(reservationService.getReservationById(123L))
-                .thenReturn(new Reservation(123L, "123",
+        Mockito.when(reservationService.getReservationById("123"))
+                .thenReturn(new Reservation("123", "123",
                         ReservationStatus.RESERVED,
                         new Duration(),
                         PaymentType.BANK,
                         new Vehicle()));
         mockMvc.perform(MockMvcRequestBuilders.get("/reservations/123"))
                 .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.reservationId").value(123L))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.reservationId").value("123"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.accountId").value("123"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.reservationStatus").value("RESERVED"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.duration").value(new Duration()))
