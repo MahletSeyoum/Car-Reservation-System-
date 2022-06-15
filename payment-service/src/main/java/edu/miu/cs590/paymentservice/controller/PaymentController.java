@@ -1,12 +1,14 @@
 package edu.miu.cs590.paymentservice.controller;
 
 import edu.miu.cs590.paymentservice.domain.PaymentRequest;
-import edu.miu.cs590.paymentservice.domain.serializers.PaymentRequestSerializer;
+import edu.miu.cs590.paymentservice.dto.PaymentRequestDTO;
 import edu.miu.cs590.paymentservice.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.kafka.core.KafkaAdmin;
 import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/payments")
@@ -16,9 +18,9 @@ public class PaymentController {
     PaymentService paymentService;
 
     @Autowired
-    KafkaTemplate<String, PaymentRequest> kafkaTemplate;
+    KafkaTemplate<String, PaymentRequestDTO> kafkaTemplate;
 
-    public PaymentController(KafkaTemplate<String, PaymentRequest> kafkaTemplate) {
+    public PaymentController(KafkaTemplate<String, PaymentRequestDTO> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
     }
 
@@ -28,8 +30,8 @@ public class PaymentController {
     }
 
     @PostMapping("/message")
-    public void publish(@RequestBody PaymentRequest request){
-        //System.out.println("aaaaaaaaa "+ request);
+    public void publish(@RequestBody PaymentRequestDTO request){
+        System.out.println("aaaaaaaaa "+ request);
         kafkaTemplate.send("paymentnotifier", request);
     }
 

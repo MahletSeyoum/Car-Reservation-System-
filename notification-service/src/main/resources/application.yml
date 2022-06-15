@@ -1,0 +1,9 @@
+server:
+  port: 9051
+
+spring:
+  application:
+    name: NOTIFICATION-SERVICE
+
+  kafka:
+    bootstrap-servers: localhost:9092

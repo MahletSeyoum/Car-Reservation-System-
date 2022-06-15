@@ -3,12 +3,12 @@ package edu.miu.cs590.paymentservice.domain.serializers;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.kafka.common.errors.SerializationException;
-import org.apache.kafka.common.header.Headers;
 import org.apache.kafka.common.serialization.Serializer;
 
 import java.util.Map;
 
-public class PaymentStatusSerializer implements Serializer {
+public class PaymentRequestDTOSerializer implements Serializer {
+
     @Override
     public void configure(Map configs, boolean isKey) {
         Serializer.super.configure(configs, isKey);
@@ -21,11 +21,6 @@ public class PaymentStatusSerializer implements Serializer {
         } catch (JsonProcessingException e) {
             throw new SerializationException("Error when serializing MessageDto to byte[]");
         }
-    }
-
-    @Override
-    public byte[] serialize(String topic, Headers headers, Object data) {
-        return Serializer.super.serialize(topic, headers, data);
     }
 
     @Override
