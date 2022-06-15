@@ -2,7 +2,9 @@ package edu.miu.cs590.vehicleservice.service;
 
 import edu.miu.cs590.vehicleservice.domain.Vehicle;
 import edu.miu.cs590.vehicleservice.repository.VehicleRepository;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +12,8 @@ import java.util.List;
 
 @Data
 @Service
+@NoArgsConstructor
+@AllArgsConstructor
 public class VehicleServiceImp implements VehicleService{
 
     @Autowired
@@ -33,7 +37,7 @@ public class VehicleServiceImp implements VehicleService{
 
     @Override
     public Vehicle getVehicleById(String vehicleId) {
-        return vehicleRepository.findById(vehicleId).orElse(null);
+        return vehicleRepository.findById(vehicleId).get();
     }
 
     @Override
