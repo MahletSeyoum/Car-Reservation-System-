@@ -1,7 +1,8 @@
 package edu.miu.cs590.reservationservice.controller;
 
 import edu.miu.cs590.reservationservice.controller.request.ReservationRequest;
-import edu.miu.cs590.reservationservice.domain.*;
+import edu.miu.cs590.reservationservice.domain.PaymentRequest;
+import edu.miu.cs590.reservationservice.domain.Reservation;
 import edu.miu.cs590.reservationservice.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -23,18 +24,18 @@ public class ReservationController {
         return reservationService.getAllReservations();
     }
 
-    @PostMapping("/{accountId}/{vehicleId}")
-    public Reservation createReservation(@RequestBody ReservationRequest reservationRequest, @PathVariable String accountId, @PathVariable Long vehicleId){
-        return reservationService.addReservation(reservationRequest,accountId, vehicleId);
+    @PostMapping("/{vehicleId}")
+    public Reservation createReservation(@RequestBody ReservationRequest reservationRequest, @PathVariable String vehicleId){
+        return reservationService.addReservation(reservationRequest, vehicleId);
     }
 
     @DeleteMapping("/{id}")
-    public void cancelReservation( @PathVariable Long id ){
+    public void cancelReservation( @PathVariable String id ){
         reservationService.cancelReservation(id);
     }
 
     @GetMapping("/{id}")
-    public Reservation getReservationById(@PathVariable Long id){
+    public Reservation getReservationById(@PathVariable String id){
         return reservationService.getReservationById(id);
     }
 

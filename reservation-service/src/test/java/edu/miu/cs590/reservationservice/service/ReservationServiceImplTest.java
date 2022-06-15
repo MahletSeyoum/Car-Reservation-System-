@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Bean;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
 
@@ -46,10 +45,11 @@ public class ReservationServiceImplTest {
 
     @Before
     public void setUp() throws Exception {
-        Long reservationId = 123L;
+        String reservationId = "123";
         Vehicle vehicle = new Vehicle();
         Duration duration = new Duration();
-        Reservation reservation = new Reservation(reservationId, "123", ReservationStatus.RESERVED, duration, PaymentType.BANK,vehicle);
+        Account account = new Account();
+        Reservation reservation = new Reservation(reservationId, ReservationStatus.RESERVED, account, duration, PaymentType.BANK,vehicle);
         Optional<Reservation> optionalReservation = Optional.of(reservation);
 
         Mockito.when(reservationRepository.findById(reservationId)).thenReturn(optionalReservation);
@@ -78,10 +78,10 @@ public class ReservationServiceImplTest {
 
     @Test
     public void testGetReservationById() {
-        Long reservationId = 123L;
+        String reservationId = "123";
         Reservation reservation = reservationService.getReservationById(reservationId);
 
-        assertThat(reservation.getReservationId())
+        assertThat(reservation.getId())
                 .isEqualTo(reservationId);
 
     }

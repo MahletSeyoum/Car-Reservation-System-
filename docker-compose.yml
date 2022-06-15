@@ -1,0 +1,8 @@
+version: "3.8"
+services:
+  reservation-app:
+    build: ./reservation-service/.
+    image: mseyoum/reservation-service
+  account-app:
+    build: ./accountservice/.
+    image:

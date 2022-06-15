@@ -1,15 +1,21 @@
 package edu.miu.cs590.vehicleservice.service;
 
 import edu.miu.cs590.vehicleservice.domain.Vehicle;
+import edu.miu.cs590.vehicleservice.domain.VehicleStatus;
 import edu.miu.cs590.vehicleservice.repository.VehicleRepository;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Data
 @Service
+@NoArgsConstructor
+@AllArgsConstructor
 public class VehicleServiceImp implements VehicleService{
 
     @Autowired
@@ -32,8 +38,8 @@ public class VehicleServiceImp implements VehicleService{
     }
 
     @Override
-    public Vehicle getVehicleById(Long vehicleId) {
-        return vehicleRepository.findById(vehicleId).orElse(null);
+    public Vehicle getVehicleById(String vehicleId) {
+        return vehicleRepository.findById(vehicleId).get();
     }
 
     @Override
@@ -42,17 +48,27 @@ public class VehicleServiceImp implements VehicleService{
     }
 
     @Override
-    public Vehicle updateVehicle(Long vehicleId , Vehicle vehicle) {
-         if(vehicleRepository.findById(vehicleId).isPresent()){
-             vehicle.setId(vehicleId);
+    public Vehicle updateVehicle(String vehicleId , Vehicle vehicle) {
+        if(vehicleRepository.findById(vehicleId).isPresent()){
+            vehicle.setId(vehicleId);
+
             return vehicleRepository.save(vehicle);
-         }
-         return vehicleRepository.save(vehicle);
+        }
+        return vehicleRepository.save(vehicle);
     }
 
 
     @Override
-    public void deleteVehicle(Long vehicleId) {
-         vehicleRepository.deleteById(vehicleId);
+    public void deleteVehicle(String vehicleId) {
+        vehicleRepository.deleteById(vehicleId);
+    }
+
+    @Override
+    public void updateVehicleStatus(String vehicleId, VehicleStatus vehicleStatus) {
+        Optional<Vehicle> vehicleOptional = vehicleRepository.findById(vehicleId);
+        if(vehicleOptional.isPresent()){
+            vehicleOptional.get().setVehicleStatus(vehicleStatus);
+            vehicleRepository.save(vehicleOptional.get());
+        }
     }
 }
