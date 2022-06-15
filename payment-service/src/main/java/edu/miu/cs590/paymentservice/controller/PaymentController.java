@@ -32,13 +32,4 @@ public class PaymentController {
         kafkaTemplate.send("paymentnotifier", paymentRequestDTO);
         return paymentRequest;
     }
-
-    //@PostMapping("/message")
-    //public void publish(@RequestBody PaymentRequestDTO request){
-      //  kafkaTemplate.send("paymentnotifier", request);
-    //}
-
-
-
-
 }
