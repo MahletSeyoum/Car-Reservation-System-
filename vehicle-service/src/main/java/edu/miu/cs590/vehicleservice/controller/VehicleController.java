@@ -67,6 +67,7 @@ public class VehicleController {
     public ResponseEntity<?>deleteVehicle(@PathVariable String id){
         vehicleService.deleteVehicle(id);
         return ResponseEntity.ok("Successful");
+
     }
 
 
