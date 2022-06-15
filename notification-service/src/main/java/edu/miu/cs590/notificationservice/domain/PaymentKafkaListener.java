@@ -12,6 +12,6 @@ public class PaymentKafkaListener {
     @KafkaListener(topics = "paymentnotifier", groupId = "groupId")
     void listener(String data) throws JsonProcessingException {
         PaymentRequest event = new ObjectMapper().readValue(data, PaymentRequest.class);
-        System.out.println("Listener received: "+ event);
+        System.out.println("Notification Sent: "+ event);
     }
 }
