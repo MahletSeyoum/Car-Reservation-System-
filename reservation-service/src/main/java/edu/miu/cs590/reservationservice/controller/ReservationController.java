@@ -4,6 +4,7 @@ import edu.miu.cs590.reservationservice.controller.request.ReservationRequest;
 import edu.miu.cs590.reservationservice.domain.*;
 import edu.miu.cs590.reservationservice.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,6 +13,8 @@ import java.util.List;
 @RequestMapping("/reservations")
 public class ReservationController {
 
+
+    @Qualifier("reservationServiceImpl")
     @Autowired
     ReservationService reservationService;
 

@@ -8,7 +8,6 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
