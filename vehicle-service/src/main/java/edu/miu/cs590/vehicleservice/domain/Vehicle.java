@@ -1,16 +1,15 @@
 package edu.miu.cs590.vehicleservice.domain;
 
 import lombok.Data;
-
-import javax.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
-@Entity
+@Document
 public class Vehicle {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private String id;
 
     private String vinNumber;
 
@@ -27,7 +26,7 @@ public class Vehicle {
     private String yearOfManufacture;
 
     private VehicleType vehicleType;
-    @Enumerated
+
     private VehicleStatus vehicleStatus;
 
     private Double price;

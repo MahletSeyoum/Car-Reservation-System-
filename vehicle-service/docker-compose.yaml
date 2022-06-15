@@ -1,0 +1,5 @@
+version: "3.8"
+services:
+  app:
+    build: .
+    image: editeare/vehicle-service  # goes to your repository on Docker Hub

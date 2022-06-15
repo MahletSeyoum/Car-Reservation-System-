@@ -1,23 +1,13 @@
 server:
   port: 9041
 
-
-
 spring:
   application:
     name: PAYMENT-SERVICE
-  datasource:
-    password: password
-    url: jdbc:postgresql://localhost:5432/paymentdb
-    username: postgres
-  jpa:
-    hibernate:
-      ddl-auto: update
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
-        format_sql: true
-  ##  show-sql: true
+  data:
+    mongodb:
+      uri: mongodb+srv://admin:Password1234@cluster0.qv3omtv.mongodb.net/?retryWrites=true&w=majority
+      database: paymentdb
 
   kafka:
     bootstrap-servers: localhost:9092

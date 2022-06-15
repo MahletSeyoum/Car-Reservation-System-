@@ -11,12 +11,12 @@ public interface VehicleService {
 
     List <Vehicle> getVehicleByModel(String model);
 
-    Vehicle getVehicleById (Long vehicleId);
+    Vehicle getVehicleById (String vehicleId);
 
     Vehicle addVehicle (Vehicle vehicle);
 
-    Vehicle updateVehicle (Long vehicleId , Vehicle vehicle);
+    Vehicle updateVehicle (String vehicleId , Vehicle vehicle);
 
-   void deleteVehicle (Long vehicleId);
+    void deleteVehicle (String vehicleId);
 
 }

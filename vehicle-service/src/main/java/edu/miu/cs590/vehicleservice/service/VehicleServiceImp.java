@@ -32,7 +32,7 @@ public class VehicleServiceImp implements VehicleService{
     }
 
     @Override
-    public Vehicle getVehicleById(Long vehicleId) {
+    public Vehicle getVehicleById(String vehicleId) {
         return vehicleRepository.findById(vehicleId).orElse(null);
     }
 
@@ -42,17 +42,18 @@ public class VehicleServiceImp implements VehicleService{
     }
 
     @Override
-    public Vehicle updateVehicle(Long vehicleId , Vehicle vehicle) {
-         if(vehicleRepository.findById(vehicleId).isPresent()){
-             vehicle.setId(vehicleId);
+    public Vehicle updateVehicle(String vehicleId , Vehicle vehicle) {
+        if(vehicleRepository.findById(vehicleId).isPresent()){
+            vehicle.setId(vehicleId);
+
             return vehicleRepository.save(vehicle);
-         }
-         return vehicleRepository.save(vehicle);
+        }
+        return vehicleRepository.save(vehicle);
     }
 
 
     @Override
-    public void deleteVehicle(Long vehicleId) {
-         vehicleRepository.deleteById(vehicleId);
+    public void deleteVehicle(String vehicleId) {
+        vehicleRepository.deleteById(vehicleId);
     }
 }
