@@ -1,6 +1,5 @@
 package edu.miu.cs590.paymentservice.config;
 
-import edu.miu.cs590.paymentservice.domain.PaymentRequest;
 import edu.miu.cs590.paymentservice.domain.serializers.PaymentRequestDTOSerializer;
 import edu.miu.cs590.paymentservice.dto.PaymentRequestDTO;
 import org.apache.kafka.clients.producer.ProducerConfig;

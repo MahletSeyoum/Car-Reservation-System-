@@ -3,18 +3,18 @@ package edu.miu.cs590.paymentservice.domain;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.*;
 
-@Entity
+@Document
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class PaymentRequest {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
     private String paymentType;
     private String reservationId;
     private String userId;
