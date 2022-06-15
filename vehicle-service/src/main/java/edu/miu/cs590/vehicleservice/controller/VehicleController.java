@@ -4,10 +4,8 @@ import edu.miu.cs590.vehicleservice.domain.Vehicle;
 import edu.miu.cs590.vehicleservice.service.VehicleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,7 +29,7 @@ public class VehicleController {
 
     //Get the vehicles by id
     @GetMapping("getvehicle/{id}")
-    public Vehicle getVehicleById(@PathVariable Long id) {
+    public Vehicle getVehicleById(@PathVariable String id) {
         Vehicle vehicle = vehicleService.getVehicleById(id);
         return vehicle;
 
@@ -60,16 +58,18 @@ public class VehicleController {
     }
 
     @PutMapping(path = "/{id}")
-    public ResponseEntity<?>updateVehicle(@PathVariable Long id , @RequestBody Vehicle vehicleBody){
+    public ResponseEntity<?>updateVehicle(@PathVariable String id , @RequestBody Vehicle vehicleBody){
         return ResponseEntity.ok(vehicleService.updateVehicle(id ,vehicleBody));
 
     }
 
     @DeleteMapping(path = "/{id}")
-    public ResponseEntity<?>deleteVehicle(@PathVariable Long id){
+    public ResponseEntity<?>deleteVehicle(@PathVariable String id){
         vehicleService.deleteVehicle(id);
         return ResponseEntity.ok("Successful");
     }
+
+
 
 
 }
