@@ -36,4 +36,10 @@ public class ServiceController {
     public ReservationVO createReservation(@RequestBody ReservationRequestVO reservationRequest, @PathVariable String vehicleId){
         return endpointService.addReservation(reservationRequest, vehicleId);
     }
+
+    @DeleteMapping("/reservations/{id}")
+    public void cancelReservation( @PathVariable String id ){
+        endpointService.cancelReservation(id);
+    }
+
 }

@@ -38,7 +38,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST,"/api/v1/users").permitAll()
                 .antMatchers(HttpMethod.GET,"/api/v1/users/{*}").permitAll()
                 .antMatchers(HttpMethod.GET,"/api/v1/services/vehicles/{*}").permitAll()
-//                .antMatchers("/api/v1/students").hasAuthority("Administrator")
+                .antMatchers(HttpMethod.DELETE, "/api/v1/services/reservations/{*}").hasAuthority("Administrator")
                 .anyRequest().authenticated()
                 .and()
                 .sessionManagement()

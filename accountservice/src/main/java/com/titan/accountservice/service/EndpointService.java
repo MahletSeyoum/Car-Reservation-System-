@@ -12,4 +12,6 @@ public interface EndpointService {
     VehicleVO getVehicleById (String vehicleId);
     ReservationVO addReservation(ReservationRequestVO reservationRequest, String vehicleId);
 
+    void cancelReservation(String reservationId);
+
 }

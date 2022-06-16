@@ -54,5 +54,11 @@ public class EndpointServiceImpl implements EndpointService {
         return  reservationVO;
     }
 
+    @Override
+    public void cancelReservation(String reservationId) {
+        restTemplate
+                .delete("http://localhost:9031/reservations/" + reservationId);
+    }
+
 
 }
