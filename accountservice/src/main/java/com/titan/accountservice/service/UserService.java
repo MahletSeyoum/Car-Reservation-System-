@@ -6,7 +6,7 @@ import com.titan.accountservice.entity.UserAccount;
 
 public interface UserService {
     void add(UserAccount user);
-    UserDto findUserById(int id);
+    UserDto findUserById(String id);
 
 
 }

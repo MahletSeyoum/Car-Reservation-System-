@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="payment-service" />
+        <module name="vehicle-service" />
+        <module name="accountservice" />
+        <module name="notification-service" />
+        <module name="search-service" />
+        <module name="reservation-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="accountservice" target="17" />
+      <module name="notification-service" target="17" />
+      <module name="payment-service" target="17" />
+      <module name="reservation-service" target="17" />
+      <module name="search-service" target="17" />
+      <module name="vehicle-service" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="accountservice" options="-parameters" />
+      <module name="notification-service" options="-parameters" />
+      <module name="payment-service" options="-parameters" />
+      <module name="reservation-service" options="-parameters" />
+      <module name="search-service" options="-parameters" />
+      <module name="vehicle-service" options="-parameters" />
+    </option>
+  </component>
+</project>

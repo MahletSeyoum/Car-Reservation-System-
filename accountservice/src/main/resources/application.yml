@@ -1,27 +1,10 @@
-spring:
-  datasource:
-
-    password: Zayadbhaia1
-
-    url: jdbc:postgresql://localhost:5432/accountservicedb
-    username: postgres
-  jpa:
-    hibernate:
-      ddl-auto: create
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
-        format_sql: true
-    show-sql: false
-    defer-datasource-initialization: true
-  sql:
-    init:
-      mode: always
-
-
-
-
 server:
-  port: 8080
+  port: 9010
 
-
+spring:
+  application:
+    name: ACCOUNT-SERVICE
+  data:
+    mongodb:
+      uri: mongodb+srv://admin:Password1234@cluster0.qv3omtv.mongodb.net/?retryWrites=true&w=majority
+      database: accountdb
