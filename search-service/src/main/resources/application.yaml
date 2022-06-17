@@ -17,3 +17,28 @@ spring:
         format_sql: true
     show-sql: true
 
+
+#server:
+#  port: ${SERVER_PORT}
+#elasticsearch:
+#  host: ${ELASTIC_HOST}
+#  port: ${ELASTIC_PORT}
+#
+#spring:
+#  cache:
+#    type: redis
+#    redis:
+#      time-to-live: ${CACHE_TTL}
+#  redis:
+#    host: ${REDIS_HOST}
+#    port: ${REDIS_PORT}
+#  autoconfigure:
+#    exclude:
+#      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+
+#  data:
+#    elasticsearch:
+#      cluster-name: erental
+#      cluster-nodes: localhost:9200
+
+

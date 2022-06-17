@@ -1,16 +1,11 @@
-package edu.miu.cs590.reservationservice.domain;
+package edu.miu.cs590.reservationservice.dto;
 
 import lombok.*;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.Id;
-
-@Document
 @Data
-@Setter
-@Getter
-@AllArgsConstructor
-@NoArgsConstructor
+@Document
 public class Vehicle {
 
     @Id
@@ -36,4 +31,6 @@ public class Vehicle {
 
     private Double Price;
 
+    public Vehicle() {
+    }
 }

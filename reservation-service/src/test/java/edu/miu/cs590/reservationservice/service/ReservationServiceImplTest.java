@@ -1,6 +1,9 @@
 package edu.miu.cs590.reservationservice.service;
 
 import edu.miu.cs590.reservationservice.domain.*;
+import edu.miu.cs590.reservationservice.dto.Account;
+import edu.miu.cs590.reservationservice.dto.PaymentType;
+import edu.miu.cs590.reservationservice.dto.Vehicle;
 import edu.miu.cs590.reservationservice.repository.ReservationRepository;
 import org.junit.After;
 import org.junit.Before;

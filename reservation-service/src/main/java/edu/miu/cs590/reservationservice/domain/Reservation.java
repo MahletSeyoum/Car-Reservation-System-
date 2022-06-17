@@ -1,5 +1,8 @@
 package edu.miu.cs590.reservationservice.domain;
 
+import edu.miu.cs590.reservationservice.dto.Account;
+import edu.miu.cs590.reservationservice.dto.PaymentType;
+import edu.miu.cs590.reservationservice.dto.Vehicle;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,13 +20,15 @@ public class Reservation {
    // private String accountId;
     private ReservationStatus reservationStatus;
 
-    Account account;
+    private Account account;
 //    @Embedded
     private Duration duration;
+
     private PaymentType paymentType;
 
 //    @OneToOne(cascade = CascadeType.PERSIST)
 //    @JoinColumn(name = "vehicleID")
     private Vehicle vehicle;
+
 
 }
