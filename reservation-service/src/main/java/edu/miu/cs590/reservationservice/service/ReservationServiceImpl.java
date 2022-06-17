@@ -30,7 +30,7 @@ public class ReservationServiceImpl implements ReservationService {
             reservation.setDuration(reservationRequest.getDuration());
             reservation.setAccount(reservationRequest.getAccount());
             reservation.setPaymentType(reservationRequest.getPaymentType());
-//            vehicle.setId(null);
+//          vehicle.setId(null);
             reservation.setVehicle(vehicle);
             reservation.setReservationStatus(ReservationStatus.PENDING);
             reservation.getVehicle().setVehicleStatus(VehicleStatus.RESERVED);

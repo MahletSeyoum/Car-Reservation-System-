@@ -6,4 +6,7 @@ import lombok.Data;
 public class Account {
     private String id;
     private String email;
+
+    public Account() {
+    }
 }
