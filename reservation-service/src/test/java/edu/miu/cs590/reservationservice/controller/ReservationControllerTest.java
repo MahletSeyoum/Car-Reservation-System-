@@ -1,6 +1,9 @@
 package edu.miu.cs590.reservationservice.controller;
 
 import edu.miu.cs590.reservationservice.domain.*;
+import edu.miu.cs590.reservationservice.dto.Account;
+import edu.miu.cs590.reservationservice.dto.PaymentType;
+import edu.miu.cs590.reservationservice.dto.Vehicle;
 import edu.miu.cs590.reservationservice.service.ReservationService;
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,4 +1,4 @@
-package edu.miu.cs590.reservationservice.domain;
+package edu.miu.cs590.reservationservice.dto;
 
 public enum VehicleType {
     SUV,SEDAN,TRUCK

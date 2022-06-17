@@ -1,6 +1,9 @@
-package edu.miu.cs590.reservationservice.domain;
+package edu.miu.cs590.reservationservice.dto;
 
 
+import edu.miu.cs590.reservationservice.domain.ReservationStatus;
+import edu.miu.cs590.reservationservice.dto.PaymentStatus;
+import edu.miu.cs590.reservationservice.dto.PaymentType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

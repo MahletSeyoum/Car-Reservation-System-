@@ -2,6 +2,10 @@ package edu.miu.cs590.reservationservice.service;
 
 import edu.miu.cs590.reservationservice.controller.request.ReservationRequest;
 import edu.miu.cs590.reservationservice.domain.*;
+import edu.miu.cs590.reservationservice.dto.PaymentRequest;
+import edu.miu.cs590.reservationservice.dto.PaymentStatus;
+import edu.miu.cs590.reservationservice.dto.Vehicle;
+import edu.miu.cs590.reservationservice.dto.VehicleStatus;
 import edu.miu.cs590.reservationservice.repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -64,13 +68,6 @@ public class ReservationServiceImpl implements ReservationService {
     public Reservation getReservationById(String reservationId) {
         return reservationRepository.findById(reservationId).get();
     }
-
-//    @Override
-//    public Reservation updateStatus(Long reservationId, VehicleStatus status) {
-//        Reservation reservation= reservationRepository.findById(reservationId).get();
-//        reservation.setReservationStatus(ReservationStatus.RESERVED);
-//        return reservation;
-//    }
 
     @Override
     public String pay(PaymentRequest paymentRequest) {
