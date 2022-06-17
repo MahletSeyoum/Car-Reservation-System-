@@ -40,7 +40,6 @@ public class ReservationServiceImpl implements ReservationService {
         } else
             System.out.println("Vehicle is not available");
         return null;
-
     }
 
     @Override
@@ -50,7 +49,8 @@ public class ReservationServiceImpl implements ReservationService {
             System.out.println("Reservation does not exist");
         } else {
             Reservation reservation = optionalReservation.get();
-            reservation.getVehicle().setVehicleStatus(VehicleStatus.AVAILABLE);
+//            reservation.getVehicle().setVehicleStatus(VehicleStatus.AVAILABLE);
+            restTemplate.put("http://localhost:9001/vehicles/update-status/" + reservation.getVehicle().getId(), VehicleStatus.AVAILABLE, VehicleStatus.class);
             reservationRepository.deleteById(reservationId);
         }
     }
