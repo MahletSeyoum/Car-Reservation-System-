@@ -5,4 +5,5 @@ services:
     image: mseyoum/reservation-service
   account-app:
     build: ./accountservice/.
-    image:
+    image: mseyoum/account-service
+  
