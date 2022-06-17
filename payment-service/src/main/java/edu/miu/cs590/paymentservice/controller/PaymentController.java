@@ -2,6 +2,7 @@ package edu.miu.cs590.paymentservice.controller;
 
 import edu.miu.cs590.paymentservice.domain.PaymentRequest;
 import edu.miu.cs590.paymentservice.dto.PaymentRequestDTO;
+import edu.miu.cs590.paymentservice.dto.adapters.PaymentReqToDTOAdapter;
 import edu.miu.cs590.paymentservice.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -26,14 +27,9 @@ public class PaymentController {
 
     @PostMapping
     public PaymentRequest processPayment(@RequestBody PaymentRequest request) {
-        return paymentService.makePayment(request);
+        PaymentRequest paymentRequest=paymentService.makePayment(request);
+        PaymentRequestDTO paymentRequestDTO=PaymentReqToDTOAdapter.createPaymentRequestDTO(paymentRequest);
+        kafkaTemplate.send("paymentnotifier", paymentRequestDTO);
+        return paymentRequest;
     }
-
-    @PostMapping("/message")
-    public void publish(@RequestBody PaymentRequestDTO request){
-        System.out.println("aaaaaaaaa "+ request);
-        kafkaTemplate.send("paymentnotifier", request);
-    }
-
-
 }

@@ -3,20 +3,23 @@ package com.titan.accountservice.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+//import javax.persistence.Entity;
+//import javax.persistence.GeneratedValue;
+//import javax.persistence.GenerationType;
+//import javax.persistence.Id;
 
-@Entity
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Document
 public class UserAccount {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+
+    private String id;
     private String firstname;
     private String lastname;
     private String email;

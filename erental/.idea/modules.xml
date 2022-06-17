@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../accountservice/accountservice.iml" filepath="$PROJECT_DIR$/../accountservice/accountservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/erental.iml" filepath="$PROJECT_DIR$/erental.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../notification-service/notification-service.iml" filepath="$PROJECT_DIR$/../notification-service/notification-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../payment-service/payment-service.iml" filepath="$PROJECT_DIR$/../payment-service/payment-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../reservation-service/reservation-service.iml" filepath="$PROJECT_DIR$/../reservation-service/reservation-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../search-service/search-service.iml" filepath="$PROJECT_DIR$/../search-service/search-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../vehicle-service/vehicle-service.iml" filepath="$PROJECT_DIR$/../vehicle-service/vehicle-service.iml" />
+    </modules>
+  </component>
+</project>
