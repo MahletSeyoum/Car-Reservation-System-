@@ -2,41 +2,51 @@ package carrental.microservice.searchservice.Domain;
 
 
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+/*import javax.persistence.Entity;
+import javax.persistence.Id;*/
 import java.io.Serializable;
 
 @Document(indexName="erental")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class SearchItem implements Serializable {
 
     @Id
-    private long id;
+    private String id;
     private String yearOfManufacture;
     private String brand;
     private String model;
+    private double price;
 
-    private long userId;
+    private String userId;
     private String userName;
 
-    public SearchItem() {
-    }
 
-    public SearchItem(long id, String yearOfManufacture, String brand, String model, long userId, String userName) {
-        this.id = id;
+
+
+    public SearchItem(String yearOfManufacture, String brand, String model, String userId, String userName,double price) {
         this.yearOfManufacture = yearOfManufacture;
         this.brand = brand;
         this.model = model;
         this.userId = userId;
         this.userName = userName;
+        this.price = price;
     }
 
+    private static final long serialVersionUID = 7156526077883281623L;
+/*
     public long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -80,5 +90,13 @@ public class SearchItem implements Serializable {
         this.userName = userName;
     }
 
-    private static final long serialVersionUID = 7156526077883281623L;
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }*/
+
+
 }

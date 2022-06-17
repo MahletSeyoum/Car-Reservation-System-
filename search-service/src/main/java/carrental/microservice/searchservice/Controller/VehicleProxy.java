@@ -14,7 +14,7 @@ public interface VehicleProxy {
 
     @GetMapping("vehicles/getvehicle/{id}")
     public SearchItem retrieveVehiclesById(
-            @PathVariable("id") Long id);
+            @PathVariable("id") String id);
 
     @GetMapping("vehicles")
     public List<SearchItem> retrieveAllVehicles();
